@@ -75,6 +75,9 @@
 .footer-legal .links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
 .footer-legal a{color:var(--muted);text-decoration:none}
 
+/* spacer used to keep the footer visually separated from page content */
+.footer-spacer{height:84px;width:100%;display:block}
+
 @media (max-width:1200px){.grid-5{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:900px){.grid-4{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr}.two-col{flex-direction:column}.main-nav a{display:none}.hero-title{font-size:48px}.footer-top{flex-direction:column;gap:18px}.footer-col.right{justify-content:center}.footer-col.left{flex:1}.site-footer{margin-top:48px}}
 @media (max-width:600px){.highlights{grid-template-columns:1fr}.carousel-item{min-width:200px}.menu-overlay{width:280px}}
