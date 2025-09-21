@@ -1,0 +1,4 @@
+[
+  {"id":"xf-1","name":"XF-1 Falcon","type":"air","era":"2040s","summary":"Multi-role air superiority fighter","specs":{"length":"19.4 m","max_speed":"Mach 2.4","crew":"1"}},
+  {"id":"gv-7","name":"GV-7 Carrier","type":"naval","era":"2030s","summary":"Flagship class carrier","specs":{"length":"320 m","displacement":"85,000 t"}}
+]
