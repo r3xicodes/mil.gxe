@@ -148,11 +148,12 @@
 .sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;margin:-1px;padding:0}
 
 /* Compact responsive footer */
-.site-footer{background:linear-gradient(180deg,#071226,#071028);color:var(--muted);padding:28px 0 36px}
+.site-footer{background:linear-gradient(180deg,#071226,#071028);color:var(--muted);padding:36px 0 44px;display:block;position:relative;z-index:20;border-top:1px solid rgba(255,255,255,0.04)}
 .site-footer .footer-inner{display:grid;grid-template-columns:1fr 1fr auto;gap:28px;align-items:center}
 .site-footer .footer-block ul{list-style:none;margin:0;padding:0}
 .site-footer a{color:var(--muted);text-decoration:none}
 .site-footer a:hover{color:var(--accent)}
+.site-footer .footer-copy{margin-top:8px;font-size:14px;color:rgba(255,255,255,0.85);font-weight:600}
 .site-footer .footer-brand{text-align:right}
 .site-footer .footer-copy{margin-top:8px;font-size:14px;color:rgba(255,255,255,0.7)}
 
