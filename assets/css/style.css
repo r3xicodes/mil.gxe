@@ -1,31 +1,58 @@
-/* mil.gxe — Minimal styles (dark-first) */
+/* mil.gxe — Cinematic navy-first styles */
 :root{
-  --bg:#0A0A0A;--muted:#9AA3A8;--accent:#2FFFE3;--accent-2:#A10000;--card:#141414}
+  --bg:#071028; /* deep navy background */
+  --bg-2:#0b1222; /* header / overlay */
+  --muted:#9AA3A8;
+  --accent:#2FFFE3;
+  --accent-2:#A10000;
+  --card:#0e1724;
+  --footer-height:480px;
+  --header-height:78px;
+}
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;background:var(--bg);color:#EAEAEA;font-family:Inter,system-ui,Arial}
-.container{max-width:1100px;margin:0 auto;padding:28px}
-.site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,0.03);position:sticky;top:0;background:linear-gradient(180deg,rgba(10,10,10,0.9),rgba(10,10,10,0.6));z-index:30}
+.site-root,html,body{height:100%;margin:0;background:var(--bg);color:#EAEAEA;font-family:Inter,system-ui,Arial}
+.site-root{position:relative;z-index:50;padding-bottom:var(--footer-height)}
+.container{max-width:1200px;margin:0 auto;padding:28px}
+
+/* Header */
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#070707,#101010);display:flex;align-items:center;justify-content:center;font-family:Orbitron, sans-serif;color:var(--accent);font-weight:800}
+.logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#071223,#0b1726);display:flex;align-items:center;justify-content:center;font-family:Orbitron, sans-serif;color:var(--accent);font-weight:800}
 .title h1{font-family:Orbitron, sans-serif;margin:0;font-size:18px}
 .title p{margin:0;font-size:12px;color:var(--muted)}
-.main-nav a{color:#DDE7E9;margin-left:16px;font-weight:600}
+.main-nav{display:none}
+.menu-toggle{width:42px;height:36px;border:2px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;border-radius:6px;color:var(--muted);cursor:pointer}
 
-.hero{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.05));padding:48px;border-radius:12px;margin-top:22px}
-.hero-title{font-family:Orbitron, sans-serif;margin:0 0 8px 0;font-size:26px}
-.hero-sub{color:var(--muted);margin:0 0 16px 0}
-.hero-cta .btn{margin-right:10px}
+/* Left overlay menu */
+.menu-overlay{position:fixed;left:0;top:0;bottom:0;width:420px;background:linear-gradient(180deg,var(--bg-2),#071028);padding:60px 40px;color:#fff;transform:translateX(-100%);transition:transform .36s cubic-bezier(.2,.9,.2,1);z-index:200}
+.menu-overlay.open{transform:translateX(0)}
+.menu-overlay .close{position:absolute;right:18px;top:18px;border:0;background:transparent;color:var(--muted);font-size:20px}
+.menu-overlay ul{list-style:none;padding:0;margin:0}
+.menu-overlay li{padding:18px 0;font-family:Orbitron, sans-serif;font-size:18px}
+.overlay-backdrop{position:fixed;inset:0;background:rgba(2,4,10,0.45);opacity:0;pointer-events:none;transition:opacity .28s;z-index:150}
+.overlay-backdrop.open{opacity:1;pointer-events:auto}
 
+/* Hero (cinematic full-bleed) */
+.hero{position:relative;height:82vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(180deg,rgba(3,6,12,0.55),rgba(3,6,12,0.55));margin-top:78px}
+.hero video,.hero .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(0.56) saturate(0.95)}
+.hero .hero-inner{position:relative;z-index:6;text-align:center;padding:24px}
+.hero-title{font-family:Orbitron, sans-serif;font-size:84px;letter-spacing:6px;color:rgba(255,255,255,0.98);text-transform:uppercase;text-shadow:0 6px 30px rgba(3,10,20,0.6);margin:0}
+.hero-sub{color:var(--muted);margin-top:12px;font-size:18px}
+.hero-cta{margin-top:22px}
+
+/* Branch tiles */
+.branches{padding:48px 28px}
+.branches-grid h2{font-family:Orbitron, sans-serif;font-size:22px;color:#fff;margin:8px 0}
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.card{background:linear-gradient(180deg,var(--card),#081522);padding:28px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s;position:relative;z-index:30}
+.card h3{font-family:Orbitron, sans-serif;margin:0 0 10px 0;font-size:18px}
+.card p{margin:0;color:#bfc9cc}
+.card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(2,8,20,0.6);border-color:rgba(47,255,227,0.06)}
+
+/* Buttons */
 .btn{display:inline-block;padding:10px 16px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);font-weight:700}
 .btn.primary{background:var(--accent-2);color:#fff;border:none}
 
-.highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
-.card{background:var(--card);padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-.card:hover{box-shadow:0 18px 40px rgba(47,255,227,0.03);transform:translateY(-6px)}
-
-.carousel{display:flex;gap:12px;overflow:hidden;margin-top:8px}
-.carousel-item{min-width:260px;padding:18px;background:#0D0D0D;border-radius:8px}
-
+/* Small/utility layouts */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .two-col{display:flex;gap:18px}
@@ -33,19 +60,21 @@ html,body{height:100%;margin:0;background:var(--bg);color:#EAEAEA;font-family:In
 .node{display:flex;gap:12px;padding:8px;border-bottom:1px dashed rgba(255,255,255,0.02)}
 .node .date{color:var(--accent);font-weight:700;width:100px}
 
-.site-footer{display:flex;flex-direction:column;gap:10px;padding:28px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted)}
-
-/* Enhanced three-column footer */
-.footer-top{display:flex;gap:20px;align-items:flex-start}
+.site-footer{display:flex;flex-direction:column;padding:48px 32px 36px 32px;border-top:1px solid rgba(255,255,255,0.03);margin-top:160px;color:var(--muted);background:linear-gradient(180deg,rgba(0,0,0,0.12),rgba(0,0,0,0.02));position:relative;z-index:0;clear:both;box-shadow:0 -12px 36px rgba(0,0,0,0.5)}
+.footer-top{display:flex;gap:40px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;padding-bottom:24px}
 .footer-col{flex:1}
-.footer-col.right{flex:0 0 120px;display:flex;align-items:center;justify-content:center}
-.footer-col ul{list-style:none;padding:0;margin:0}
-.footer-col li{padding:8px 0;font-weight:700}
-.footer-legal{border-top:1px solid rgba(255,255,255,0.03);padding-top:12px;display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:13px}
-.footer-legal a{color:var(--muted)}
+.footer-col.left{flex:0 0 280px}
+.footer-col.center{flex:1;text-align:left;padding-top:12px}
+.footer-col.right{flex:0 0 160px;display:flex;align-items:center;justify-content:flex-end;padding-left:12px;padding-top:22px}
+.footer-left-list{list-style:none;padding:0;margin:0}
+.footer-left-list li{padding:14px 0;font-weight:800;font-family:Orbitron, sans-serif;letter-spacing:1px;text-transform:uppercase}
+.footer-center-links{display:flex;flex-direction:column;gap:10px;padding-left:18px}
+.footer-center-links a{color:var(--muted);text-decoration:none;font-size:18px}
+.external-icon{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,0.12);margin-left:8px;border-radius:2px;vertical-align:middle}
+.footer-legal{border-top:1px solid rgba(255,255,255,0.03);padding-top:20px;margin-top:22px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;color:var(--muted);font-size:14px}
+.footer-legal .links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.footer-legal a{color:var(--muted);text-decoration:none}
 
-@media (max-width:700px){.footer-top{flex-direction:column}.footer-col.right{display:block;text-align:center}}
-
-/* Responsive */
-@media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr}.grid-4{grid-template-columns:1fr 1fr}.two-col{flex-direction:column}.main-nav a{display:none}}
-@media (max-width:600px){.highlights{grid-template-columns:1fr}.carousel-item{min-width:200px}}
+@media (max-width:1200px){.grid-5{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:900px){.grid-4{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:1fr 1fr}.two-col{flex-direction:column}.main-nav a{display:none}.hero-title{font-size:48px}.footer-top{flex-direction:column;gap:18px}.footer-col.right{justify-content:center}.footer-col.left{flex:1}.site-footer{margin-top:48px}}
+@media (max-width:600px){.highlights{grid-template-columns:1fr}.carousel-item{min-width:200px}.menu-overlay{width:280px}}

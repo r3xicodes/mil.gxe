@@ -1,12 +1,12 @@
 # mil.gxe — Full In-Depth Site Plan
 
-This document is a comprehensive, actionable plan for building *mil.gxe* — a professional, futuristic military portal for the Great Holy Xanarcica Empire (GXE) using GitHub Pages + VS Code.
+This document is a comprehensive, actionable plan for building *mil.gxe* — a professional, futuristic military portal for the Imperial Xana Military Forces (GXE) using GitHub Pages + VS Code. (2025 blueprint)
 
 ## 1. Executive Summary
 
 Goal: Create a static, authoritative, and visually striking military website that balances realism and sci-fi lore. The site will be fully static so it's compatible with GitHub Pages (free), easy to maintain via VS Code, and extensible for future additions.
 
-Audience: Enthusiasts, role-players, lore readers, recruits, and visitors who expect polished UX and believable government/military presentation.
+Audience: Enthusiasts, role-players, lore readers, recruits, and visitors who expect polished UX and believable government/military presentation for the Imperial Xana Military Forces.
 
 Success Criteria:
 - Clean, responsive UI reflecting GXE brand.

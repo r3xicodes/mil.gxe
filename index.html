@@ -10,44 +10,60 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="brand"><div class="logo">GXE</div><div class="title"><h1>mil.gxe</h1><p>Great Holy Xanarcica Empire</p></div></div>
-    <nav class="main-nav">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="branches/index.html">Branches</a>
-      <a href="tech/index.html">Tech</a>
-      <a href="history/index.html">History</a>
-      <a href="media/index.html">Media</a>
-      <a href="contact/index.html">Contact</a>
-    </nav>
+    <div class="brand"><div class="logo">GXE</div><div class="title"><h1>mil.gxe</h1><p>Imperial Xana Military Forces</p></div></div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <button class="menu-toggle" aria-label="Open menu">☰</button>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-inner">
-        <h2 class="hero-title">“Every Shore, Every Sky, Every Realm — The Crown Commands.”</h2>
-        <p class="hero-sub">Official portal (design preview) for the Great Holy Xanarcica Empire military forces.</p>
+  <main class="site-root">
+    <section class="hero" role="banner">
+      <!-- background video fallback to image -->
+      <div class="bg-img" style="background-image:url('../img/hero-banner.gif');background-size:cover;background-position:center"></div>
+      <div class="hero-inner container">
+        <h1 class="hero-title">EVER VICTORIOUS</h1>
+        <div class="hero-sub">Official portal (design preview) for the Imperial Xana Military Forces — 2025.</div>
         <div class="hero-cta">
-          <a class="btn primary" href="branches/index.html">Explore Forces</a>
-          <a class="btn" href="history/index.html">View Operations</a>
-          <a class="btn" href="contact/index.html">Join Us</a>
+          <a class="btn primary" href="branches/index.html">Find Your Path</a>
         </div>
       </div>
     </section>
 
-    <section class="highlights">
-      <article class="card">
-        <h3>Air Dominance</h3>
-        <p>Advanced fighters, orbital support, and aerial reconnaissance.</p>
-      </article>
-      <article class="card">
-        <h3>Naval Supremacy</h3>
-        <p>Flagships, carriers, and deep strike squadrons.</p>
-      </article>
-      <article class="card">
-        <h3>Ground Strength</h3>
-        <p>Armored brigades and autonomous ground systems.</p>
-      </article>
+    <section class="branches-grid" style="margin-top:22px">
+      <h2>Major Branches</h2>
+      <div class="grid-4" style="grid-template-columns:repeat(4,1fr);gap:16px;margin-top:12px">
+        <a class="card" href="branches/air.html">
+          <h3>Aaril Forve Royul Xana</h3>
+          <p>Royal Xana Aerial Forces — Air Force (click for sub-branches)</p>
+        </a>
+        <a class="card" href="branches/naval.html">
+          <h3>Navil Xana</h3>
+          <p>Royal Xana Navy & National Navy (Imperial Fleet)</p>
+        </a>
+        <a class="card" href="branches/coastal.html">
+          <h3>Costal Nashunal Gard Xana</h3>
+          <p>National Coastal Patrol & coastal services</p>
+        </a>
+        <a class="card" href="branches/ground.html">
+          <h3>Graund Forve Xana</h3>
+          <p>Xana Ground Forces — Army (click for sub-branches)</p>
+        </a>
+      </div>
+
+      <div class="grid-4" style="grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px">
+        <a class="card" href="branches/royal-guard.html">
+          <h3>Royul Gard Forve Xana</h3>
+          <p>Royal Xana Guard — Imperial Guard</p>
+        </a>
+        <a class="card" href="branches/marines.html">
+          <h3>Marin Forve Royul Xana</h3>
+          <p>Royal Xana Marine Corps</p>
+        </a>
+        <a class="card" href="branches/special-warfare.html">
+          <h3>Speciel Worfare Forve Xana</h3>
+          <p>Xana Special Warfare Command</p>
+        </a>
+      </div>
     </section>
 
     <section class="featured">
@@ -62,8 +78,8 @@
 
   <footer class="site-footer">
     <div class="footer-top container">
-      <div class="footer-col">
-        <ul>
+      <div class="footer-col left">
+        <ul class="footer-left-list">
           <li>Ways to Serve</li>
           <li>How to Join</li>
           <li>FAQs</li>
@@ -71,25 +87,29 @@
           <li>Apply Now</li>
         </ul>
       </div>
-      <div class="footer-col">
-        <ul>
-          <li><a href="#">Air Force Academy</a></li>
-          <li><a href="#">Air Force ROTC</a></li>
-          <li><a href="#">Civilian Careers</a></li>
-          <li><a href="#">AF.mil</a></li>
-        </ul>
+      <div class="footer-col center">
+        <div class="footer-center-links">
+          <a href="#">Air Force Academy <span class="external-icon" aria-hidden="true"></span></a>
+          <a href="#">Air Force ROTC <span class="external-icon" aria-hidden="true"></span></a>
+          <a href="#">Air Force Civilian Careers <span class="external-icon" aria-hidden="true"></span></a>
+          <a href="#">AF.mil <span class="external-icon" aria-hidden="true"></span></a>
+        </div>
       </div>
       <div class="footer-col right">
-        <div style="width:84px;height:84px;border-radius:6px;background:linear-gradient(135deg,#0d0d0d,#101010);display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:Orbitron;font-weight:800">GXE</div>
+        <div style="width:84px;height:84px;border-radius:6px;background:linear-gradient(135deg,#0d0d0d,#101010);display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:Orbitron;font-weight:800">
+          <img src="assets/images/emblem.svg" alt="Imperial Xana emblem" style="width:64px;height:64px;" />
+        </div>
       </div>
     </div>
     <div class="footer-legal container">
-      <a href="#">Privacy Policy</a>
-      <a href="#">Do Not Sell or Share My Personal Information</a>
-      <a href="#">Accessibility</a>
-      <a href="#">About our Ads</a>
-      <a href="#">Sitemap</a>
-      <div style="margin-left:auto">© The Holy Alariastic Dynasty, GXE</div>
+      <div class="links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Do Not Sell or Share My Personal Information</a>
+        <a href="#">Accessibility</a>
+        <a href="#">About our Ads</a>
+        <a href="#">Sitemap</a>
+      </div>
+      <div>© 2025 Imperial Xana Military Forces</div>
     </div>
   </footer>
 
