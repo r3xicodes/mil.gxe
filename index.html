@@ -3,86 +3,156 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>mil.gxe — Home</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <title>GXE Military — Home</title>
+  <link rel="icon" href="assets/images/emblem.png" sizes="48x48" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* small helper to ensure hero poster visible if video missing */
+    .hero video{display:block}
+    .hero .bg-img{display:none}
+  </style>
 </head>
 <body>
+  <a class="sr-only" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="brand"><div class="logo">GXE</div><div class="title"><h1>mil.gxe</h1><p>Imperial Xana Military Forces</p></div></div>
-    <nav class="top-nav container">
-      <div class="nav-left">
-  <img src="/assets/images/emblem.png" alt="emblem" class="nav-emblem" />
-      </div>
-      <div class="nav-center">
-        <a class="nav-link" href="#">CONNECT</a>
-        <a class="nav-link" href="#">APPLY NOW</a>
-      </div>
-      <div class="nav-right">
-        <div class="search">
-          <input type="search" placeholder="What are you looking for?" aria-label="Search" />
-        </div>
-        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-      </div>
-    </nav>
+    <div class="topbar"><div class="container">Connect • Apply Now • Chat • Contact Recruiter</div></div>
+    <div class="nav container">
+      <div class="brand"><a href="./" aria-label="GXE home"><img src="assets/images/emblem.png" alt="GXE emblem" width="54" height="54" style="border-radius:8px;object-fit:cover"></a><div style="line-height:1"><strong>mil.gxe</strong><div class="muted">Great Holy Xanarcica Empire</div></div></div>
+      <nav class="primary">
+        <a href="#">About</a>
+        <a href="#paths">Ways to Serve</a>
+        <a href="#careers">Careers</a>
+        <a href="#training">Training</a>
+        <a href="#bases">Bases</a>
+        <a class="cta-apply" href="#apply">Apply Now</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="site-root">
-    <section class="hero" role="banner">
-      <!-- Hero video with poster; separate background fallback if video missing -->
-      <video class="hero-video" autoplay muted loop playsinline poster="/media/hero-bg.jpg">
-        <source src="/assets/images/hero.mp4" type="video/mp4">
+  <main id="main">
+    <section class="hero">
+      <video autoplay muted loop playsinline poster="media/hero-bg.jpg">
+        <source src="assets/images/hero.mp4" type="video/mp4">
       </video>
-      <!-- fallback background image (use hero-bg.jpg which is present) -->
       <div class="bg-img" style="background-image:url('media/hero-bg.jpg');background-size:cover;background-position:center" aria-hidden="true"></div>
       <div class="hero-inner container">
-        <h1 class="hero-title">EVER VICTORIOUS</h1>
-        <div class="hero-sub">Official portal (design preview) for the Imperial Xana Military Forces — 2025.</div>
-        <div class="hero-cta">
-          <a class="btn primary" href="branches/index.html">Find Your Path</a>
+        <h1>FOR THE CROWN. FOR THE XANA MAJESTY.</h1>
+        <p>Find your path in the Great Holy Xanarcica Empire’s armed forces.</p>
+        <div class="btns">
+          <a class="btn" href="#apply" style="background:var(--accent);color:var(--white)">Apply to Serve</a>
+          <a class="btn outline" href="#careers">Explore Careers</a>
+          <a class="btn outline" href="#recruiter">Find a Recruiter</a>
         </div>
       </div>
     </section>
-    
-      <section class="intro">
-        <div class="intro-text">
-          <h2>Welcome to the Imperial Xana Military Forces</h2>
-          <p>Your journey begins here. Explore our branches and find your path to serve.</p>
-        </div>
-      </section>
+
+    <!-- ...existing page content... -->
+
+    <section id="paths" class="paths container">
+      <h2>Ways to Serve</h2>
+      <div class="grid" style="margin-top:18px">
+        <div class="tile"><div><h3>Royal Xana Aerial Forces</h3><p>Air superiority, rapid response, and aerial logistics.</p></div><a class="btn outline" href="#">Learn more</a></div>
+        <div class="tile"><div><h3>Royal Xana Navy</h3><p>Fleet operations across the colonies and coastal defenses.</p></div><a class="btn outline" href="#">Learn more</a></div>
+        <div class="tile"><div><h3>Royal Xana Guard</h3><p>Imperial guard, ceremonial duties, and high-security operations.</p></div><a class="btn outline" href="#">Learn more</a></div>
+        <div class="tile"><div><h3>Graund Forve Xana</h3><p>Ground operations, armor units, and engineering corps.</p></div><a class="btn outline" href="#">Learn more</a></div>
+      </div>
+    </section>
+
+    <section id="careers" class="careers container">
+      <h2>Careers & Benefits</h2>
+      <p class="muted">Over 300 careers across aviation, engineering, intelligence, logistics, and more.</p>
+      <div style="margin-top:12px" class="chips">
+        <div class="chip">Aviation</div>
+        <div class="chip">Engineering</div>
+        <div class="chip">Intelligence</div>
+        <div class="chip">Logistics</div>
+      </div>
+
+      <div style="margin-top:18px" class="finder">
+        <select id="finder-status"><option>I'm a civilian</option><option>Prior service</option><option>Student</option></select>
+        <select id="finder-education"><option>High school</option><option>Some college</option><option>Bachelor's</option></select>
+        <select id="finder-area"><option>Aviation</option><option>Engineering</option><option>Intelligence</option><option>Logistics</option></select>
+        <button id="finder-go" class="btn" style="background:var(--accent);color:var(--white)">Find roles</button>
+      </div>
+
+      <div id="finder-results" style="margin-top:12px"></div>
+    </section>
+
+    <section id="media" class="media container">
+      <h2>Featured Media</h2>
+      <div class="media-row">
+        <div class="media-card">Featured video: Fleet exercises teaser</div>
+        <div class="media-card">Photo gallery: Honor Guard</div>
+        <div class="media-card">Story: Operation Iron Oath</div>
+      </div>
+    </section>
+
+    <section id="news" class="container" style="padding:28px">
+      <h2>Latest Operations & Honors</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
+        <div style="background:#071025;padding:12px;border-radius:8px">Operation Xathiva — Amphibious</div>
+        <div style="background:#071025;padding:12px;border-radius:8px">Operation Sable — Strike</div>
+        <div style="background:#071025;padding:12px;border-radius:8px">Honor: Iron Oath Fortification</div>
+      </div>
+    </section>
+
+    <section id="bases" class="container" style="padding:28px">
+      <h2>Bases & Colonies</h2>
+      <p class="muted">Find a base near you — search by region or unit type.</p>
+    </section>
+
+    <section id="apply" class="container" style="padding:28px">
+      <h2>Apply to Serve</h2>
+      <p class="muted">Begin the application funnel — minimal fields first, then expand.</p>
+      <a class="btn" href="#" style="background:var(--accent);color:var(--white)">Start Application</a>
+    </section>
+
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner container">
-      <div class="footer-block footer-links">
-        <h3 class="sr-only">Navigation</h3>
-        <ul>
-          <li><a href="#">Ways to Serve</a></li>
-          <li><a href="#">How to Join</a></li>
-          <li><a href="#">FAQs</a></li>
-          <li><a href="#">Find a Recruiter</a></li>
-          <li><a href="#">Apply Now</a></li>
-        </ul>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Contact</strong>
+        <div class="muted">Recruiter Finder • Press • Mail</div>
       </div>
-      <div class="footer-block footer-resources">
-        <h3 class="sr-only">Resources</h3>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Accessibility</a></li>
-          <li><a href="#">Sitemap</a></li>
-        </ul>
+      <div>
+        <strong>Legal</strong>
+        <div class="muted"><a href="privacy.html">Privacy</a> • <a href="accessibility.html">Accessibility</a> • <a href="sitemap.html">Sitemap</a></div>
       </div>
-      <div class="footer-block footer-brand">
-        <a href="/" class="footer-logo" aria-label="Imperial Xana">
-          <img src="/assets/images/emblem.png" alt="Imperial Xana emblem" width="64" height="64" />
-        </a>
-        <div class="footer-copy">© 2025 Imperial Xana Military Forces</div>
+      <div>
+        <a href="./"> <img src="assets/images/emblem.png" alt="emblem" width="48" height="48"> </a>
+        <div class="muted">© 2025 Great Holy Xanarcica Empire</div>
       </div>
     </div>
   </footer>
-  
 
+  <script>
+    // Minimal career-finder demo (client-side only)
+    const careers = [
+      {id:1,title:'Pilot',area:'Aviation',level:"Bachelor's"},
+      {id:2,title:'Combat Engineer',area:'Engineering',level:'High school'},
+      {id:3,title:'Signals Analyst',area:'Intelligence',level:'Some college'},
+      {id:4,title:'Logistics Specialist',area:'Logistics',level:'High school'}
+    ];
+    document.addEventListener('DOMContentLoaded',()=>{
+      const go = document.getElementById('finder-go');
+      if(go) go.addEventListener('click',()=>{
+        const area = document.getElementById('finder-area').value;
+        const level = document.getElementById('finder-education').value;
+        const results = careers.filter(c=>c.area===area && (c.level===level || c.level!=='High school'));
+        const container = document.getElementById('finder-results');
+        container.innerHTML = results.length ? results.map(r=>`<div style="background:#071025;padding:10px;border-radius:6px;margin-bottom:8px"><strong>${r.title}</strong><div class="muted">${r.area} • ${r.level}</div></div>`).join('') : '<div class="muted">No immediate matches — contact a recruiter.</div>';
+      });
+
+      document.querySelectorAll('.chip, .paths .tile .btn').forEach(el=>el.addEventListener('click',e=>{
+        const t = e.currentTarget.textContent.trim();
+        localStorage.setItem('gxe:selected',t);
+        alert('Saved selection: '+t);
+      }));
+    });
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
