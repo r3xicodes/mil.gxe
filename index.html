@@ -7,6 +7,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/images/emblem.png" sizes="48x48" />
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="assets/images/emblem.png">
+  <meta name="theme-color" content="#071226">
   <style>
     /* Minimal GXE theme (inline for single-file deliverable) */
     :root{--bg:#07080b;--surface:#0d1318;--muted:#aab3b8;--white:#ffffff;--accent:#b11212;--accent-2:#6b2aa6;--card:#0b1620}
@@ -87,8 +90,8 @@
         <source src="assets/images/hero.mp4" type="video/mp4">
       </video>
       <div class="hero-inner container">
-        <h1>FOR THE CROWN. FOR THE XANA MAJESTY.</h1>
-        <p>Find your path in the Great Holy Xanarcica Empire’s armed forces.</p>
+        <h1>EVER VICTORIOUS. FOR THE XANA CROWN.</h1>
+        <p>Find your path in the Imperial Xana Military Forces.</p>
         <div class="btns">
           <a class="btn" href="#apply" style="background:var(--accent);color:var(--white)">Apply to Serve</a>
           <a class="btn outline" href="#careers">Explore Careers</a>
@@ -203,6 +206,27 @@
       localStorage.setItem('gxe:selected',t);
       alert('Saved selection: '+t);
     }));
+  </script>
+  <script>
+    // Hero video fallback: if video file fails to load, hide it so the poster/background is visible
+    (function(){
+      const vid = document.querySelector('.hero video');
+      if(!vid) return;
+      // try a HEAD request via fetch to check availability
+      const src = vid.querySelector('source') ? vid.querySelector('source').getAttribute('src') : vid.getAttribute('src');
+      if(!src) return;
+      fetch(src, {method:'HEAD'}).then(r=>{
+        if(!r.ok){
+          vid.style.display = 'none';
+          const bg = document.querySelector('.hero .bg-img');
+          if(bg) bg.style.display = 'block';
+        }
+      }).catch(()=>{
+        vid.style.display = 'none';
+        const bg = document.querySelector('.hero .bg-img');
+        if(bg) bg.style.display = 'block';
+      });
+    })();
   </script>
 </body>
 </html>

@@ -1,0 +1,11 @@
+{
+  "name": "GXE Military",
+  "short_name": "GXE",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071226",
+  "theme_color": "#071226",
+  "icons": [
+    { "src": "assets/images/emblem.png", "sizes": "48x48", "type": "image/png" }
+  ]
+}
