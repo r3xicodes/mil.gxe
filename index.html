@@ -11,15 +11,31 @@
 <body>
   <header class="site-header">
     <div class="brand"><div class="logo">GXE</div><div class="title"><h1>mil.gxe</h1><p>Imperial Xana Military Forces</p></div></div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <button class="menu-toggle" aria-label="Open menu">☰</button>
-    </div>
+    <nav class="top-nav container">
+      <div class="nav-left">
+  <img src="assets/images/emblem.png" alt="emblem" class="nav-emblem" />
+      </div>
+      <div class="nav-center">
+        <a class="nav-link" href="#">CONNECT</a>
+        <a class="nav-link" href="#">APPLY NOW</a>
+      </div>
+      <div class="nav-right">
+        <div class="search">
+          <input type="search" placeholder="What are you looking for?" aria-label="Search" />
+        </div>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </nav>
   </header>
 
   <main class="site-root">
     <section class="hero" role="banner">
-      <!-- background video fallback to image -->
-      <div class="bg-img" style="background-image:url('media/hero-banner.gif');background-size:cover;background-position:center"></div>
+      <!-- Hero video with poster; separate background fallback if video missing -->
+      <video class="hero-video" autoplay muted loop playsinline poster="media/hero-bg.jpg">
+        <source src="media/hero.mp4" type="video/mp4">
+      </video>
+      <!-- fallback background image (use hero-bg.jpg which is present) -->
+      <div class="bg-img" style="background-image:url('media/hero-bg.jpg');background-size:cover;background-position:center" aria-hidden="true"></div>
       <div class="hero-inner container">
         <h1 class="hero-title">EVER VICTORIOUS</h1>
         <div class="hero-sub">Official portal (design preview) for the Imperial Xana Military Forces — 2025.</div>
@@ -28,6 +44,13 @@
         </div>
       </div>
     </section>
+    
+      <section class="intro">
+        <div class="intro-text">
+          <h2>Welcome to the Imperial Xana Military Forces</h2>
+          <p>Your journey begins here. Explore our branches and find your path to serve.</p>
+        </div>
+      </section>
 
     <section class="branches-grid" style="margin-top:22px">
       <h2>Major Branches</h2>
@@ -74,6 +97,18 @@
         <div class="carousel-item">Operation Iron Oath — Defensive fortification</div>
       </div>
     </section>
+
+    <!-- blank spacer block between branches and footer -->
+    <div class="block-spacer" aria-hidden="true"></div>
+
+    <!-- full-bleed placeholder image sections -->
+    <section class="full-bleed placeholder" aria-hidden="true">
+      <div class="placeholder-inner">Placeholder Image 1</div>
+    </section>
+
+    <section class="full-bleed placeholder" aria-hidden="true">
+      <div class="placeholder-inner">Placeholder Image 2</div>
+    </section>
   </main>
 
   <div class="footer-spacer" aria-hidden="true"></div>
@@ -99,7 +134,7 @@
       </div>
       <div class="footer-col right">
         <div style="width:84px;height:84px;border-radius:6px;background:linear-gradient(135deg,#0d0d0d,#101010);display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:Orbitron;font-weight:800">
-          <img src="assets/images/emblem.svg" alt="Imperial Xana emblem" style="width:64px;height:64px;" />
+          <img src="assets/images/emblem.png" alt="Imperial Xana emblem" style="width:64px;height:64px;" />
         </div>
       </div>
     </div>
@@ -114,6 +149,7 @@
       <div>© 2025 Imperial Xana Military Forces</div>
     </div>
   </footer>
+  
 
   <script src="assets/js/main.js"></script>
 </body>

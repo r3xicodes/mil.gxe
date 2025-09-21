@@ -89,9 +89,17 @@
     ensureMenu();
     var btns = document.getElementsByClassName('menu-toggle');
     for(var i=0;i<btns.length;i++){
-      btns[i].addEventListener('click',function(e){
-        e.preventDefault(); toggleMenu();
-      });
+      (function(b){
+        b.setAttribute('aria-expanded','false');
+        b.addEventListener('click',function(e){
+          e.preventDefault(); toggleMenu();
+          // sync aria-expanded after a tiny delay to let class toggle
+          setTimeout(function(){
+            var overlay = document.querySelector('.menu-overlay');
+            b.setAttribute('aria-expanded', overlay && overlay.classList.contains('open') ? 'true' : 'false');
+          },50);
+        });
+      })(btns[i]);
     }
     // close on Escape
     window.addEventListener('keydown',function(e){ if(e.key === 'Escape'){ toggleMenu(false); } });
@@ -102,7 +110,26 @@
     openModal: function(id){console.log('open modal',id)}
   };
 
+  // Simple newsletter client-side handler for Netlify forms
+  function initSignupForm(){
+    var form = document.querySelector('form[name="newsletter"]');
+    if(!form) return;
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      fetch(form.action || '/', { method: 'POST', body: data }).then(function(){
+        var msg = form.querySelector('.signup-success');
+        if(msg){ msg.textContent = 'Thanks — we\'ll be in touch!'; msg.style.display = 'block'; }
+        form.reset();
+      }).catch(function(){
+        var msg = form.querySelector('.signup-success');
+        if(msg){ msg.textContent = 'Submission failed — please try again.'; msg.style.display = 'block'; }
+      });
+    });
+  }
+
   // init on DOM ready
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMenuToggle); else initMenuToggle();
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSignupForm); else initSignupForm();
 
 })();
