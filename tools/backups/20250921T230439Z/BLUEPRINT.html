@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>mil.gxe — Design Blueprint</title>
+  <meta name="description" content="Design blueprint for mil.gxe — GXE military command portal (visual system, pages, UX, and dev deliverables)." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Basic reset */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#0A0A0A;color:#EAEAEA}
+    a{color:#2FFFE3;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Container */
+    .wrap{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+
+    /* Brand */
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:64px;height:64px;background:linear-gradient(135deg,#0b0b0b,#141414);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:Orbitron, sans-serif;color:#2FFFE3;font-weight:700;box-shadow:0 0 18px rgba(47,255,227,0.06)}
+    .brand h1{font-family:Orbitron, sans-serif;font-weight:700;margin:0;font-size:20px}
+    .brand p{margin:0;font-size:12px;color:#9AA3A8}
+
+    /* Nav */
+    nav ul{list-style:none;display:flex;gap:18px;margin:0;padding:0}
+    nav li{font-weight:600}
+
+    /* Hero */
+    .hero{margin:28px 0;padding:36px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(12,12,12,0.6),rgba(6,6,6,0.6));border:1px solid rgba(255,255,255,0.03);position:relative}
+    .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,transparent,rgba(47,255,227,0.02));pointer-events:none}
+    .hero .motto{font-family:Orbitron, sans-serif;font-size:22px;color:#EAEAEA;max-width:800px}
+    .hero .cta{margin-top:16px;display:flex;gap:12px}
+    .btn{padding:10px 18px;border-radius:8px;background:#A10000;color:white;border:0;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(161,0,0,0.12)}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#2FFFE3}
+
+    /* Grid cards */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .card{background:#141414;border:1px solid rgba(255,255,255,0.03);padding:16px;border-radius:10px;transition:transform .22s ease,box-shadow .22s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(47,255,227,0.04);border-color:rgba(47,255,227,0.16)}
+    .card h3{font-family:Orbitron, sans-serif;margin:0 0 8px 0}
+    .card p{margin:0;color:#BFC9CC}
+
+    /* Section headings */
+    h2{font-family:Orbitron, sans-serif;border-left:4px solid #A10000;padding-left:12px;margin-top:32px}
+
+    /* Timeline */
+    .timeline{background:#0E0E0E;padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+    .timeline .node{padding:10px 12px;border-bottom:1px dashed rgba(255,255,255,0.02);display:flex;align-items:flex-start;gap:14px}
+    .timeline .date{font-weight:700;color:#2FFFE3;width:120px}
+    .timeline .desc{color:#C9D3D6}
+
+    /* Footer */
+    footer{margin-top:40px;padding:24px;border-top:1px solid rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center;color:#9AA3A8}
+
+    /* Code block like spec */
+    .spec{background:#071019;padding:12px;border-radius:8px;font-family:monospace;color:#C6F7EF;border:1px solid rgba(47,255,227,0.06)}
+
+    /* Responsive */
+    @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}.wrap{padding:12px}.brand h1{font-size:16px}}
+    @media (max-width:600px){.grid{grid-template-columns:1fr}.hero .motto{font-size:18px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">GXE</div>
+        <div>
+          <h1>mil.gxe</h1>
+          <p>Imperial Xana Military Forces — Military Portal (design blueprint, 2025)</p>
+        </div>
+      </div>
+      <nav>
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Branches ▾</li>
+            <li>Tech</li>
+            <li>History</li>
+            <li>Media</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="motto">“Every Shore, Every Sky, Every Realm — The Crown Commands.”</div>
+        <div class="cta">
+          <button class="btn">Explore Forces</button>
+          <button class="btn secondary">View Operations</button>
+          <button class="btn secondary">Join Us</button>
+        </div>
+
+        <div class="grid" style="margin-top:26px">
+          <article class="card">
+            <h3>Air Dominance</h3>
+            <p>Advanced fighters, orbital support, and aerial reconnaissance units.</p>
+          </article>
+          <article class="card">
+            <h3>Naval Supremacy</h3>
+            <p>Flagships, carriers, and deep strike squadrons projecting sea power.</p>
+          </article>
+          <article class="card">
+            <h3>Ground Strength</h3>
+            <p>Armored brigades, mechanized infantry, and autonomous systems.</p>
+          </article>
+        </div>
+      </section>
+
+      <h2>About — Mission & Leadership</h2>
+      <section style="display:grid;grid-template-columns:320px 1fr;gap:18px;margin-top:12px;align-items:start">
+        <div style="background:#111;padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)">
+          <img src="#" alt="Saint Empress" style="background:linear-gradient(180deg,#121212,#0d0d0d);height:220px;border-radius:6px">
+        </div>
+        <div>
+          <p style="color:#BFC9CC">The Great Holy Xanarcica Empire safeguards its realms with unparalleled resolve. Under the Saint Empress, the GXE military balances honor, strategy, and technological supremacy.</p>
+          <div class="timeline" style="margin-top:18px">
+            <div class="node">
+              <div class="date">11350</div>
+              <div class="desc">First Tanja War — initial unification campaigns and strategic annexations.</div>
+            </div>
+            <div class="node">
+              <div class="date">11356</div>
+              <div class="desc">Second Tanja War — counter-insurgency and counter-fleet operations.</div>
+            </div>
+            <div class="node">
+              <div class="date">11360</div>
+              <div class="desc">Xathiva Campaigns — high-intensity operations with joint task forces.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <h2>Branches (overview)</h2>
+      <section class="grid" style="margin-top:12px">
+        <article class="card">
+          <h3>Royal Air Forces</h3>
+          <p>Motto: Rule the Skies, Serve the Crown.</p>
+        </article>
+        <article class="card">
+          <h3>Royal Navy</h3>
+          <p>Motto: The Sea Holds No Secret.</p>
+        </article>
+        <article class="card">
+          <h3>Ground Forces</h3>
+          <p>Motto: Iron and Oath.</p>
+        </article>
+        <article class="card">
+          <h3>Royal Guard</h3>
+          <p>Elite protection and ceremonial vanguard.</p>
+        </article>
+      </section>
+
+      <h2>Technology & Equipment (blueprint)</h2>
+      <section style="display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:12px">
+        <div>
+          <div class="card" style="margin-bottom:12px">
+            <h3>Equipment Grid</h3>
+            <p>Grid of equipment cards with filters for category and era. Cards open detailed modal spec sheets styled like defense contractor pages.</p>
+          </div>
+
+          <div class="card">
+            <h3>Spec Example</h3>
+            <div class="spec">XF-1 Falcon — length: 19.4m | wingspan: 11.2m | max speed: Mach 2.4 | crew: 1</div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3>Map & Operations</h3>
+            <p>SVG map with interactive regions and click-to-open dossier cards.</p>
+          </div>
+          <div class="card" style="margin-top:12px">
+            <h3>Media</h3>
+            <p>Gallery, downloads, official wallpapers, and video embeds.</p>
+          </div>
+        </aside>
+      </section>
+
+      <h2>History & Operations</h2>
+      <section style="margin-top:12px">
+        <div class="card">
+          <h3>War Dossiers</h3>
+          <p>Accordion list of campaigns with two-paragraph summaries and classification stamps. Use CSS for stamped ribbons (CLASSIFIED / DECLASSIFIED).</p>
+        </div>
+      </section>
+
+      <h2>Contact / Join</h2>
+      <section style="margin-top:12px">
+        <div class="card">
+          <h3>Recruitment CTA</h3>
+          <p>Form links to an external Google Form. The form is styled to look like a terminal using dark inputs and turquoise highlights.</p>
+        </div>
+      </section>
+
+      <h2>Developer Deliverables</h2>
+      <section style="margin-top:12px">
+        <div class="card">
+          <h3>Repo Structure</h3>
+          <pre class="spec">/
+  index.html
+  about.html
+  branches/
+    index.html
+    air.html
+  tech/
+    index.html
+    xf-1.html
+  assets/
+    css/
+    js/
+    images/
+  data/
+    equipment.json
+    operations.json
+</pre>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Build & Deploy</h3>
+          <p>Option A: Pure static site — push to `main` and enable GitHub Pages (root). Option B: Build step (Tailwind/Vite) — use GitHub Actions to build and deploy to `gh-pages` branch.</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Accessibility & Performance</h3>
+          <ul style="color:#BFC9CC">
+            <li>WCAG contrast ratios</li>
+            <li>Keyboard navigation for modals and dropdowns</li>
+            <li>Lazy-loading images & webp with fallbacks</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>Contact</strong>
+  <div class="muted"><a href="/mil.gxe/contact/index.html">Contact</a> • <a href="/mil.gxe/contact/recruiter-finder.html">Recruiter Finder</a></div>
+    </div>
+    <div>
+      <strong>Legal</strong>
+  <div class="muted"><a href="/mil.gxe/privacy.html">Privacy</a> • <a href="/mil.gxe/accessibility.html">Accessibility</a> • <a href="/mil.gxe/sitemap.html">Sitemap</a></div>
+    </div>
+    <div>
+  <a href="/mil.gxe/index.html"> <img src="/mil.gxe/assets/images/emblem.png" alt="emblem" width="48" height="48"> </a>
+      <div class="muted">© 2025 Great Holy Xanarcica Empire</div>
+    </div>
+  </div>
+</footer>
+  </div>
+</body>
+</html>
